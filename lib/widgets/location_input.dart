@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:location/location.dart';
 
 class LocationInput extends StatefulWidget {
   @override
@@ -7,6 +8,10 @@ class LocationInput extends StatefulWidget {
 
 class _LocationInputState extends State<LocationInput> {
   String _previewImageURL;
+
+  Future<void> _getCurrentUserLocation() async {
+    final locData = await Location().getLocation();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +39,7 @@ class _LocationInputState extends State<LocationInput> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             TextButton.icon(
-              onPressed: null,
+              onPressed: _getCurrentUserLocation,
               style: ButtonStyle(
                   foregroundColor: MaterialStateProperty.all(
                       Theme.of(context).primaryColor)),
