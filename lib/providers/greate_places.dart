@@ -39,6 +39,7 @@ class GreatPlaces with ChangeNotifier {
   }
 
   void addPlace(String title, File image, LatLng position) async {
+    print(title);
     String address = await LocationUtil.getAddressFrom(position);
 
     final newPlace = Place(
@@ -53,7 +54,7 @@ class GreatPlaces with ChangeNotifier {
     );
 
     _items.add(newPlace);
-    print(newPlace);
+
     DbUtil.insert('places', {
       'id': newPlace.id,
       'title': newPlace.title,
