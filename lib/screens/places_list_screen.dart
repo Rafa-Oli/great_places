@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:great_places/providers/greate_place.dart';
+import 'package:great_places/providers/greate_places.dart';
 import 'package:great_places/utils/app_routes.dart';
 import 'package:provider/provider.dart';
 
@@ -19,14 +19,16 @@ class PlacesListScreen extends StatelessWidget {
           ],
         ),
         body: FutureBuilder(
-          future: Provider.of<GreatPlaces>(context).loadPlaces(),
+          future: Provider.of<GreatPlaces>(context, listen: false).loadPlaces(),
           builder: (ctx, snapshot) => snapshot.connectionState ==
                   ConnectionState.waiting
               ? Center(
                   child: CircularProgressIndicator(),
                 )
               : Consumer<GreatPlaces>(
-                  child: Center(child: Text('No places registered!')),
+                  child: Center(
+                    child: Text('No places registered!'),
+                  ),
                   builder: (context, greatPlaces, child) =>
                       greatPlaces.itemsCount == 0
                           ? child
@@ -35,9 +37,14 @@ class PlacesListScreen extends StatelessWidget {
                               itemBuilder: (ctx, i) => ListTile(
                                 leading: CircleAvatar(
                                   backgroundImage: FileImage(
-                                      greatPlaces.itemByIndex(i).image),
+                                    greatPlaces.itemByIndex(i).image,
+                                  ),
                                 ),
                                 title: Text(greatPlaces.itemByIndex(i).title),
+                                subtitle: Text(greatPlaces
+                                    .itemByIndex(i)
+                                    .location
+                                    .address),
                                 onTap: () {},
                               ),
                             ),
