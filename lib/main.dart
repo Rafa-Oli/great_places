@@ -19,9 +19,9 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         title: 'Great Places',
         theme: ThemeData(
-          primarySwatch: Colors.blueGrey,
-          accentColor: Colors.amber,
-        ),
+            primarySwatch: Colors.blueGrey,
+            accentColor: Colors.amber,
+            fontFamily: 'Montserrat'),
         home: PlacesListScreen(),
         routes: {
           AppRoutes.PLACE_FORM: (ctx) => PlaceFormScreen(),

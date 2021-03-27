@@ -54,7 +54,7 @@ class _LocationInputState extends State<LocationInput> {
       children: [
         Container(
           height: 170,
-          width: double.infinity,
+          width: 320,
           alignment: Alignment.center,
           decoration: BoxDecoration(
             border: Border.all(
@@ -70,26 +70,29 @@ class _LocationInputState extends State<LocationInput> {
                   width: double.infinity,
                 ),
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            TextButton.icon(
-              onPressed: _getCurrentUserLocation,
-              style: ButtonStyle(
-                  foregroundColor: MaterialStateProperty.all(
-                      Theme.of(context).primaryColor)),
-              icon: Icon(Icons.location_on),
-              label: Text('Current location'),
-            ),
-            TextButton.icon(
-              onPressed: _selectOnMap,
-              style: ButtonStyle(
-                  foregroundColor: MaterialStateProperty.all(
-                      Theme.of(context).primaryColor)),
-              icon: Icon(Icons.map),
-              label: Text('Select on the map'),
-            )
-          ],
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              TextButton.icon(
+                onPressed: _getCurrentUserLocation,
+                style: ButtonStyle(
+                    foregroundColor: MaterialStateProperty.all(
+                        Theme.of(context).primaryColor)),
+                icon: Icon(Icons.location_on),
+                label: Text('Current location'),
+              ),
+              TextButton.icon(
+                onPressed: _selectOnMap,
+                style: ButtonStyle(
+                    foregroundColor: MaterialStateProperty.all(
+                        Theme.of(context).primaryColor)),
+                icon: Icon(Icons.map),
+                label: Text('Select on the map'),
+              )
+            ],
+          ),
         )
       ],
     );

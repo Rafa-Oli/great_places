@@ -57,10 +57,11 @@ class _PlaceFormScreenState extends State<PlaceFormScreen> {
             Expanded(
               child: SingleChildScrollView(
                 child: Padding(
-                  padding: const EdgeInsets.all(10),
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
                   child: Column(
                     children: [
-                      TextField(
+                      TextFormField(
                         controller: _titleController,
                         decoration: InputDecoration(
                           labelText: 'Title',
