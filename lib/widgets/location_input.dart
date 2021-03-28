@@ -54,7 +54,7 @@ class _LocationInputState extends State<LocationInput> {
       children: [
         Container(
           height: 170,
-          width: 320,
+          width: double.infinity,
           alignment: Alignment.center,
           decoration: BoxDecoration(
             border: Border.all(
@@ -70,12 +70,11 @@ class _LocationInputState extends State<LocationInput> {
                   width: double.infinity,
                 ),
         ),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              TextButton.icon(
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              child: TextButton.icon(
                 onPressed: _getCurrentUserLocation,
                 style: ButtonStyle(
                     foregroundColor: MaterialStateProperty.all(
@@ -83,17 +82,22 @@ class _LocationInputState extends State<LocationInput> {
                 icon: Icon(Icons.location_on),
                 label: Text('Current location'),
               ),
-              TextButton.icon(
+            ),
+            Expanded(
+              child: TextButton.icon(
                 onPressed: _selectOnMap,
                 style: ButtonStyle(
                     foregroundColor: MaterialStateProperty.all(
                         Theme.of(context).primaryColor)),
                 icon: Icon(Icons.map),
                 label: Text('Select on the map'),
-              )
-            ],
-          ),
-        )
+              ),
+            ),
+          ],
+        ),
+        SizedBox(
+          width: 60,
+        ),
       ],
     );
   }

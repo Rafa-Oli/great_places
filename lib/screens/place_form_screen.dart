@@ -58,7 +58,7 @@ class _PlaceFormScreenState extends State<PlaceFormScreen> {
               child: SingleChildScrollView(
                 child: Padding(
                   padding:
-                      const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                      const EdgeInsets.symmetric(vertical: 10, horizontal: 11),
                   child: Column(
                     children: [
                       TextFormField(

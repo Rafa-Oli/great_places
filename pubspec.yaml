@@ -70,8 +70,8 @@ flutter:
   fonts:
     - family: Montserrat
       fonts:
-        - asset: lib/assets/fonts/Montserrat-Light.ttf
-        - asset: assets/fonts/Montserrat-ExtraLight.ttf
+        - asset: assets/fonts/Montserrat-Light.ttf
+        # - asset: assets/fonts/Montserrat-ExtraLight.ttf
   #         style: italic
     # - family: Syne Mono
     #   fonts:
